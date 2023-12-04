@@ -29,59 +29,67 @@ cal = Calendar()
 time_zone = pytz.timezone('America/New_York')
 
 # Define your work week (Monday to Saturday)
-start_date = datetime(2023, 11, 28)
+start_date = datetime(2023, 12, 4)
 work_days = [(start_date + timedelta(days=i)).strftime('%Y-%m-%d') for i in range(6)]
 
 
 # Define the detailed tasks for each time slot
 detailed_tasks = {
     '08:00-10:00': {
-        'Monday': 'VCA Model Development ',
-        'Tuesday': 'Proposal Writing - Modulating Striatal-Amygdala Pathway',
-        'Wednesday': 'VCA Model Development ',
-        'Thursday': 'Proposal Writing - Modulating Striatal-Amygdala Pathway',
-        'Friday': 'Teaching Preparation  - Content Review and Interactive Elements',
-        'Saturday': 'GatorBrain Project '
+        'Monday': 'VCA',
+        'Tuesday': 'VCA',#Proposal Writing - Modulating Striatal-Amygdala Pathway
+        'Wednesday': 'VCA',
+        'Thursday': 'VCA',
+        'Friday': 'VCA',
+        'Saturday': 'VCA'
     },
-    '10:00-12:00': {
-        'Monday': 'GatorBrain Project - Research and Collaboration Meetings',
-        'Tuesday': 'HeadNeck Outcome ',
-        'Wednesday': 'GatorBrain Project ',
-        'Thursday': 'HeadNeck Outcome - Data Analysis and Report Drafting',
-        'Friday': 'Interpretable AI Research - Literature Review and Testing',
-        'Saturday': 'HeadNeck CBCT - Development'
+    '10:15-12:00': {
+        'Monday': 'GatorBrain',
+        'Tuesday': 'GatorBrain',#HeadNeck Outcome
+        'Wednesday': 'GatorBrain',
+        'Thursday': 'GatorBrain',
+        'Friday': 'GatorBrain',#Interpretable AI Research
+        'Saturday': 'GatorBrain'
     },
     '13:00-15:00': {
-        'Monday': 'Teaching Preparation - Content Review and Interactive Elements',
-        'Tuesday': 'VCA Model Development',
-        'Wednesday': 'Teaching Preparation - Content Review and Interactive Elements',
-        'Thursday': 'VCA Model Development',
-        'Friday': 'HeadNeck CBCT - Development',
-        'Saturday': 'Writing Proposal - Modulating Striatal-Amygdala Pathway'
+        'Monday': 'Teaching',
+        'Tuesday': 'Teaching',
+        'Wednesday': 'Teaching',
+        'Thursday': 'Teaching',
+        'Friday': 'Teaching',
+        'Saturday': 'Teaching'
     },
-    '15:00-17:00': {
-        'Monday': 'Proposal Writing - Modulating Striatal-Amygdala Pathway',
-        'Tuesday': 'Interpretable AI - Algorithm Development',
-        'Wednesday': 'Proposal Writing - Modulating Striatal-Amygdala Pathway',
-        'Thursday': 'Interpretable AI - Algorithm Development',
-        'Friday': 'HeadNeck Outcome',
-        'Saturday': 'Teaching Preparation - Finalizing & Recording'
+    '15:15-17:00': {
+        'Monday': 'Proposal Writing',
+        'Tuesday': 'Proposal Writing',
+        'Wednesday': 'Proposal Writing',
+        'Thursday': 'Proposal Writing',
+        'Friday': 'Proposal Writing',
+        'Saturday': 'Proposal Writing'
     },
     '18:00-20:00': {
-        'Monday': 'Administrative Tasks and Light Research',
-        'Tuesday': 'Administrative Tasks and Light Research',
-        'Wednesday': 'HeadNeck CBCT - Development',
-        'Thursday': 'Administrative Tasks and Light Research',
-        'Friday': 'Administrative Tasks and Light Research',
-        'Saturday': 'Administrative Tasks and Light Research'
+        'Monday': 'Exercise and Light Research',
+        'Tuesday': 'Exercise and Light Research',
+        'Wednesday': 'Exercise and Light Research',
+        'Thursday': 'Exercise and Light Research',
+        'Friday': 'Exercise and Light Research',
+        'Saturday': 'Exercise and Light Research'
     },
-    '20:00-22:00': {
-        'Monday': 'Review Day’s Progress and Plan Next Day',
-        'Tuesday': 'Review Day’s Progress and Plan Next Day',
-        'Wednesday': 'Review Day’s Progress and Plan Next Day',
-        'Thursday': 'GatorBrain Project',
-        'Friday': 'Review Day’s Progress and Plan Next Day',
-        'Saturday': 'Review Day’s Progress and Plan Next Day'
+    '20:15-22:00': {
+        'Monday': 'CBCT',
+        'Tuesday': 'HeadNeck Outcome',
+        'Wednesday': 'CBCT',
+        'Thursday': 'HeadNeck Outcome',
+        'Friday': 'CBCT',
+        'Saturday': 'HeadNeck Outcome'
+    },
+    '22:15-23:45': {
+        'Monday': 'Social Perception',
+        'Tuesday': 'Interpretable AI Research',
+        'Wednesday': 'Social Perception',
+        'Thursday': 'Interpretable AI Research',
+        'Friday': 'Social Perception',
+        'Saturday': 'Interpretable AI Research'
     }
 }
 # Add events to the calendar for each time slot and work day
@@ -89,7 +97,7 @@ for day, day_str in zip(['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday',
     for time_slot, tasks in detailed_tasks.items():
         start_time, end_time = time_slot.split('-')
         description = tasks.get(day, 'General Work')
-        event = create_event(day_str, start_time, end_time, description, time_zone)
+        event = create_event(day_str, start_time, end_time, description, time_zone,  reminder_minutes=15)
         cal.add_component(event)
 
 # Save the calendar to an .ics file
