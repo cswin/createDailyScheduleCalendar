@@ -29,19 +29,20 @@ cal = Calendar()
 time_zone = pytz.timezone('America/New_York')
 
 # Define your work week (Monday to Saturday)
-start_date = datetime(2023, 12, 4)
-work_days = [(start_date + timedelta(days=i)).strftime('%Y-%m-%d') for i in range(6)]
+start_date = datetime(2023, 12, 11)
+work_days = [(start_date + timedelta(days=i)).strftime('%Y-%m-%d') for i in range(7)]
 
 
 # Define the detailed tasks for each time slot
 detailed_tasks = {
     '08:00-10:00': {
-        'Monday': 'VCA',
-        'Tuesday': 'VCA',#Proposal Writing - Modulating Striatal-Amygdala Pathway
-        'Wednesday': 'VCA',
-        'Thursday': 'VCA',
-        'Friday': 'VCA',
-        'Saturday': 'VCA'
+        'Monday': 'Proposal:Striatal-Amygdala',
+        'Tuesday': 'Proposal:Striatal-Amygdala',#Proposal Writing - Modulating Striatal-Amygdala Pathway
+        'Wednesday': 'Proposal:Striatal-Amygdala',
+        'Thursday': 'Proposal:Striatal-Amygdala',
+        'Friday': 'Proposal:Striatal-Amygdala',
+        'Saturday': 'Proposal:Striatal-Amygdala',
+        'Sunday': 'Play with LLM'
     },
     '10:15-12:00': {
         'Monday': 'GatorBrain',
@@ -49,7 +50,8 @@ detailed_tasks = {
         'Wednesday': 'GatorBrain',
         'Thursday': 'GatorBrain',
         'Friday': 'GatorBrain',#Interpretable AI Research
-        'Saturday': 'GatorBrain'
+        'Saturday': 'GatorBrain',
+        'Sunday': 'Play with LLM'
     },
     '13:00-15:00': {
         'Monday': 'Teaching',
@@ -57,23 +59,26 @@ detailed_tasks = {
         'Wednesday': 'Teaching',
         'Thursday': 'Teaching',
         'Friday': 'Teaching',
-        'Saturday': 'Teaching'
+        'Saturday': 'Teaching',
+        'Sunday': 'Play with LLM'
     },
     '15:15-17:00': {
-        'Monday': 'Proposal Writing',
-        'Tuesday': 'Proposal Writing',
-        'Wednesday': 'Proposal Writing',
-        'Thursday': 'Proposal Writing',
-        'Friday': 'Proposal Writing',
-        'Saturday': 'Proposal Writing'
+        'Monday': 'GatorBrain',
+        'Tuesday': 'Teaching',
+        'Wednesday': 'GatorBrain',
+        'Thursday': 'Teaching',
+        'Friday': 'GatorBrain',
+        'Saturday': 'Teaching',
+        'Sunday': 'Play with LLM'
     },
     '18:00-20:00': {
-        'Monday': 'Exercise and Light Research',
-        'Tuesday': 'Exercise and Light Research',
-        'Wednesday': 'Exercise and Light Research',
-        'Thursday': 'Exercise and Light Research',
-        'Friday': 'Exercise and Light Research',
-        'Saturday': 'Exercise and Light Research'
+        'Monday': 'Proposal:Striatal-Amygdala',
+        'Tuesday': 'Teaching',
+        'Wednesday': 'Proposal:Striatal-Amygdala',
+        'Thursday': 'Teaching',
+        'Friday': 'Proposal:Striatal-Amygdala',
+        'Saturday': 'Proposal:Striatal-Amygdala',
+        'Sunday': 'Play with LLM'
     },
     '20:15-22:00': {
         'Monday': 'CBCT',
@@ -81,19 +86,23 @@ detailed_tasks = {
         'Wednesday': 'CBCT',
         'Thursday': 'HeadNeck Outcome',
         'Friday': 'CBCT',
-        'Saturday': 'HeadNeck Outcome'
+        'Saturday': 'HeadNeck Outcome',
+        'Sunday': 'Play with LLM'
     },
     '22:15-23:45': {
         'Monday': 'Social Perception',
-        'Tuesday': 'Interpretable AI Research',
+        'Tuesday': 'Social Perception',
         'Wednesday': 'Social Perception',
-        'Thursday': 'Interpretable AI Research',
+        'Thursday': 'Social Perception',
         'Friday': 'Social Perception',
-        'Saturday': 'Interpretable AI Research'
+        'Saturday': 'Social Perception',
+        'Sunday': 'Play with LLM'
     }
+
+
 }
 # Add events to the calendar for each time slot and work day
-for day, day_str in zip(['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'], work_days):
+for day, day_str in zip(['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday','Sunday'], work_days):
     for time_slot, tasks in detailed_tasks.items():
         start_time, end_time = time_slot.split('-')
         description = tasks.get(day, 'General Work')
