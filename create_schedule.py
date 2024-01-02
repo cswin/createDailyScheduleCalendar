@@ -29,20 +29,19 @@ cal = Calendar()
 time_zone = pytz.timezone('America/New_York')
 
 # Define your work week (Monday to Saturday)
-start_date = datetime(2023, 12, 11)
+start_date = datetime(2024, 1, 1)
 work_days = [(start_date + timedelta(days=i)).strftime('%Y-%m-%d') for i in range(7)]
-
 
 # Define the detailed tasks for each time slot
 detailed_tasks = {
     '08:00-10:00': {
-        'Monday': 'Proposal:Striatal-Amygdala',
-        'Tuesday': 'Proposal:Striatal-Amygdala',#Proposal Writing - Modulating Striatal-Amygdala Pathway
-        'Wednesday': 'Proposal:Striatal-Amygdala',
-        'Thursday': 'Proposal:Striatal-Amygdala',
-        'Friday': 'Proposal:Striatal-Amygdala',
-        'Saturday': 'Proposal:Striatal-Amygdala',
-        'Sunday': 'Play with LLM'
+        'Monday': 'VCA',
+        'Tuesday': 'VCA',#Proposal Writing - Modulating Striatal-Amygdala Pathway
+        'Wednesday': 'VCA',
+        'Thursday': 'VCA',
+        'Friday': 'VCA',
+        'Saturday': 'Social Perception',
+        'Sunday': 'Interpretable AI Research'
     },
     '10:15-12:00': {
         'Monday': 'GatorBrain',
@@ -50,8 +49,8 @@ detailed_tasks = {
         'Wednesday': 'GatorBrain',
         'Thursday': 'GatorBrain',
         'Friday': 'GatorBrain',#Interpretable AI Research
-        'Saturday': 'GatorBrain',
-        'Sunday': 'Play with LLM'
+        'Saturday': 'Social Perception',
+        'Sunday': 'Interpretable AI Research'
     },
     '13:00-15:00': {
         'Monday': 'Teaching',
@@ -59,47 +58,45 @@ detailed_tasks = {
         'Wednesday': 'Teaching',
         'Thursday': 'Teaching',
         'Friday': 'Teaching',
-        'Saturday': 'Teaching',
-        'Sunday': 'Play with LLM'
+        'Saturday': 'Social Perception',
+        'Sunday': 'Interpretable AI Research'
     },
     '15:15-17:00': {
-        'Monday': 'GatorBrain',
-        'Tuesday': 'Teaching',
-        'Wednesday': 'GatorBrain',
-        'Thursday': 'Teaching',
-        'Friday': 'GatorBrain',
-        'Saturday': 'Teaching',
-        'Sunday': 'Play with LLM'
+        'Monday': 'VCA',
+        'Tuesday': 'GatorBrain',
+        'Wednesday': 'VCA',
+        'Thursday': 'GatorBrain',
+        'Friday': 'VCA',
+        'Saturday': 'Social Perception',
+        'Sunday': 'Interpretable AI Research'
     },
     '18:00-20:00': {
-        'Monday': 'Proposal:Striatal-Amygdala',
+        'Monday': 'Teaching',
         'Tuesday': 'Teaching',
-        'Wednesday': 'Proposal:Striatal-Amygdala',
-        'Thursday': 'Teaching',
-        'Friday': 'Proposal:Striatal-Amygdala',
-        'Saturday': 'Proposal:Striatal-Amygdala',
-        'Sunday': 'Play with LLM'
+        'Wednesday': 'Teaching',
+        'Thursday': 'CBCT',
+        'Friday': 'HeadNeck Outcome',
+        'Saturday': 'Light Reading & Writing',
+        'Sunday': 'Light Reading & Writing'
     },
     '20:15-22:00': {
         'Monday': 'CBCT',
         'Tuesday': 'HeadNeck Outcome',
         'Wednesday': 'CBCT',
-        'Thursday': 'HeadNeck Outcome',
-        'Friday': 'CBCT',
+        'Thursday': 'CBCT',
+        'Friday': 'HeadNeck Outcome',
         'Saturday': 'HeadNeck Outcome',
-        'Sunday': 'Play with LLM'
+        'Sunday': 'CBCT'
     },
     '22:15-23:45': {
-        'Monday': 'Social Perception',
-        'Tuesday': 'Social Perception',
-        'Wednesday': 'Social Perception',
+        'Monday': 'CBCT',
+        'Tuesday': 'HeadNeck Outcome',
+        'Wednesday': 'CBCT',
         'Thursday': 'Social Perception',
-        'Friday': 'Social Perception',
-        'Saturday': 'Social Perception',
-        'Sunday': 'Play with LLM'
+        'Friday': 'Interpretable AI Research',
+        'Saturday': 'HeadNeck Outcome',
+        'Sunday': 'Light Reading & Writing'
     }
-
-
 }
 # Add events to the calendar for each time slot and work day
 for day, day_str in zip(['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday','Sunday'], work_days):
